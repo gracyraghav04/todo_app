@@ -1,0 +1,116 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+body{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+   gap:30px;
+
+font-family: Quicksand , sans-serif;
+background-color:blanchedalmond;
+
+
+background-image: url(coffee.jpg) ;
+background-size:cover;
+background-position:center;
+background-blend-mode:overlay;
+}
+
+
+.container{
+   border-radius:10px;
+    padding:10px;
+    background-color:rgb(158, 99, 11);
+   width:auto;
+    text-align:center;
+  height:auto;
+    
+
+}
+#btn{
+    padding:2px;
+    background-color: pink;
+    color:black;
+    border-radius:5px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+    
+    
+}
+#btn:hover{
+    background-color: salmon;
+    color:white;
+}
+
+h1{
+ color:brown;
+ font-weight:700;
+    
+}
+#task{
+    border-radius:5px;
+    
+     box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+     
+   
+    
+}
+
+
+
+.item{
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+    gap:10px;
+    
+    width:auto;
+    margin-top:40px;
+    
+    
+}
+
+.item button{  padding:1px;
+    background-color: pink;
+    color:black;
+    border-radius:5px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+   
+    
+    
+
+}  
+button:hover{
+    background-color: salmon;
+    color:white;
+}
+.item span{
+    flex:1;
+    background-color:blanchedalmond;
+     border-radius:5px;
+    
+     box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+     border: 2px solid black;
+    text-align:left;
+    padding-right:80px;
+   
+font-size:16px;
+font-weight:600;
+white-space:nowrap;
+}
+.completed{
+    text-decoration:line-through;
+    color:gray;
+}
+
+   .checkbox {
+    
+  width: 30px;
+  height: 30px;
+  accent-color:blanchedalmond;
+    
+
+   }
