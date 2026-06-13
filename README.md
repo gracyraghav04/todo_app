@@ -18,7 +18,7 @@ Features:
 |Project Purpose:
 This project was created to practice JavaScript fundamentals and improve frontend development skills.
 
-|Future Improvements:
+Future Improvements:
 1.Local Storage support
 2.Due dates
 3.Dark mode
