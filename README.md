@@ -6,19 +6,19 @@ Features:
 3.Delete tasks
 4.Clean and user-friendly interface
 5.Responsive design
-Technologies Used:
+|Technologies Used:
 1.HTML5
 2.CSS3
 3.JavaScript 
-What I Learned:
+|What I Learned:
 1.DOM Manipulation
 2.Event Handling
 3.JavaScript Functions
 4.Dynamic UI Updates
-Project Purpose:
+|Project Purpose:
 This project was created to practice JavaScript fundamentals and improve frontend development skills.
 
-Future Improvements:
+|Future Improvements:
 1.Local Storage support
 2.Due dates
 3.Dark mode
