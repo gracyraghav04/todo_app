@@ -17,7 +17,6 @@ JavaScript Functions
 Working with Arrays
 Dynamic UI Updates
 Project Purpose
-
 This project was created to practice JavaScript fundamentals and improve frontend development skills.
 
 Future Improvements
@@ -27,7 +26,6 @@ Due dates
 Dark mode
 Edit task feature
 Author
-
 Gracy Raghav
 
-GitHub: https://github.com/gracyraghav04
+GitHub: https://github.com/gracyraghav04 iss readme ko update kro or crisp and meaningful kro
