@@ -1,113 +1,77 @@
-/*console.log("JS connected");
-
-const  btn = document.getElementById("btn");
-
-btn.addEventListener("click", () => {
-    const value = document.getElementById("task").value;
-
-    if (value === "") return;
-
-    const li = document.createElement("li");
-    li.classList.add("item");
-    const text = document.createElement("span");
-    text.innerText = value;
-   
-
-
-    const delbtn=document.createElement("button");
-    delbtn.innerText="Remove";
-    const checkbtn=document.createElement("input");
-    checkbtn.type="checkbox";
-    checkbtn.classList.add("checkbox");
-    
-    delbtn.addEventListener("click", ()=> {
-      li.remove();});
-    checkbtn.addEventListener("change",()=>{
-      text.classList.add("completed");
-      setTimeout(()=>{
-        li.remove();},1000);
-      });
-         
-    
-  
-    li.appendChild(text);
-    li.appendChild(delbtn);
-    li.appendChild(checkbtn);
-    
-    document.getElementById("list").appendChild(li);
-
-    document.getElementById("task").value = "";
-});*/
 console.log("JS connected");
 
 const btn = document.getElementById("btn");
-const input = document.getElementById("task");
 const list = document.getElementById("list");
 
+// LocalStorage se purane tasks load karo
+let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 
-let savedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
+// LocalStorage update function
+function saveTasks() {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+}
 
+// Task ko screen par dikhane ka function
+function addTaskToUI(taskText, index) {
 
-function renderTasks() {
-    list.innerHTML = "";
+    const li = document.createElement("li");
+    li.classList.add("item");
 
-    savedTasks.forEach((taskText, index) => {
-        const li = document.createElement("li");
-        li.classList.add("item");
+    const text = document.createElement("span");
+    text.innerText = taskText;
 
-        const text = document.createElement("span");
-        text.innerText = taskText;
+    const delbtn = document.createElement("button");
+    delbtn.innerText = "Remove";
 
-        const delbtn = document.createElement("button");
-        delbtn.innerText = "Remove";
+    const checkbtn = document.createElement("input");
+    checkbtn.type = "checkbox";
+    checkbtn.classList.add("checkbox");
 
-        const checkbtn = document.createElement("input");
-        checkbtn.type = "checkbox";
-
-        
-        delbtn.addEventListener("click", () => {
-            savedTasks.splice(index, 1);
-            updateStorage();
-            renderTasks();
-        });
-
-  
-        checkbtn.addEventListener("change", () => {
-            if (checkbtn.checked) {
-                setTimeout(() => {
-                    savedTasks.splice(index, 1);
-                    updateStorage();
-                    renderTasks();
-                }, 800);
-            }
-        });
-
-        li.appendChild(text);
-        li.appendChild(delbtn);
-        li.appendChild(checkbtn);
-
-        list.appendChild(li);
+    // Delete button
+    delbtn.addEventListener("click", () => {
+        tasks.splice(index, 1);
+        saveTasks();
+        li.remove();
     });
+
+    // Complete task
+    checkbtn.addEventListener("change", () => {
+        text.classList.add("completed");
+
+        setTimeout(() => {
+            tasks.splice(index, 1);
+            saveTasks();
+            li.remove();
+        }, 1000);
+    });
+
+    li.appendChild(text);
+    li.appendChild(delbtn);
+    li.appendChild(checkbtn);
+
+    list.appendChild(li);
 }
 
+// Page load hote hi saved tasks dikhao
+tasks.forEach((task, index) => {
+    addTaskToUI(task, index);
+});
 
-function updateStorage() {
-    localStorage.setItem("tasks", JSON.stringify(savedTasks));
-}
-
-
+// Add Task button
 btn.addEventListener("click", () => {
-    const value = input.value.trim();
+
+    const value = document.getElementById("task").value.trim();
 
     if (value === "") return;
 
-    savedTasks.push(value);
+    // Array me add
+    tasks.push(value);
 
-    input.value = "";
+    // LocalStorage update
+    saveTasks();
 
-    updateStorage();
-    renderTasks();
+    // UI update
+    addTaskToUI(value, tasks.length - 1);
+
+    document.getElementById("task").value = "";
 });
-
-
-renderTasks();
